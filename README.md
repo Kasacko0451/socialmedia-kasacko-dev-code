@@ -1,2 +1,2 @@
-# socialmedia-kasacko-dev-code
+# SocialMediaSite
 https://kasacko.herokuapp.com/
