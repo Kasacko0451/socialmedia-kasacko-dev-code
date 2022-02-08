@@ -73,25 +73,13 @@ const Post = () => {
     useEffect(() => {
 
         setPosts(fetchData)
+        if (fetchData) setLoading(true)
 
-        if (fetchData) {
-            setLoading(true)
-        }
-
-        function onScroll() {
-            if (window.innerHeight + document.documentElement.scrollTop + 0.5 >= document.body.offsetHeight) {
-                console.log("load data")
-            }
-        }
-      
-        window.addEventListener("scroll", onScroll);
-      
-        return () => window.removeEventListener("scroll", onScroll);
     }, [fetchData])
 
     async function votePost(e) {
         const post_id = e.target.getAttribute("id")
-        let islike = e.target.getAttribute("name")
+        const islike = e.target.getAttribute("name")
         sendFetch(`/api/vote_post`, "PUT", { islike, post_id })
         const result = await renderMultiVoteChange(islike, post_id, posts)
         setPosts([ ...result ])

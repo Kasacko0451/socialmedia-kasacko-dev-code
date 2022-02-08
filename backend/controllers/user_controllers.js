@@ -50,7 +50,7 @@ exports.display_userprofile = async function (req, res, next) {
                                             ON fr.follower_user_id = $1 AND fr.follows_user_id = u.id
                                          WHERE u.username = $2`, 
                                         [req.user.id, req.body.user])
-        if (res_profile.rows[0].follower_user_id) {
+        if (res_profile?.rows[0]?.follower_user_id) {
             return res.status(200).json({...res_profile.rows[0], follows: true })
         } else {
             if (res_profile.rows.follows_user_id) {

@@ -68,34 +68,34 @@ const LoggedIn = () => {
   const [ chatScreen, setChatScreen] = useState(false)
 
   useEffect(() => {
-    if(window.location.href.includes("/chatbox")) setChatScreen(() => true)
+    if (window.location.href.includes("/chatbox")) setChatScreen(() => true)
     else setChatScreen(() => false)
   })
 
   return (     
-          <Wrapper>
-            {chatScreen ? null : <MobileNavTop />}
-            <Nav>
-              <Navbar />
-            </Nav>
-            <Main>
-              <Switch>
-                <Route exact path="/"><Posts /></Route>              
-                <Route exact path="/createpost"><Createpost /></Route>
-                <Route path="/post/:id" render={(props) => <PostRender {...props} />}/>
-                <Route path="/userprofile/:id" render={(props) => <UserprofileRender {...props} />}/>
-                <Route path="/userplace"><Followlist /></Route>
-                <Route path="/chatlist" render={(props) => <Chatlist {...props} />}/>
-                <Route path="/chatbox/:id" render={(props) => <Chatbox {...props} />}/>
-                <Route path="/search"><Search /></Route>
-                <Route><NotFound /></Route>
-              </Switch>
-            </Main>
-            <Aside>
-              <Followlist />
-            </Aside>
-            {chatScreen ? null : <MobileNavBottom />}
-          </Wrapper>
+      <Wrapper>
+        {chatScreen ? null : <MobileNavTop />}
+        <Nav>
+          <Navbar />
+        </Nav>
+        <Main>
+          <Switch>
+            <Route exact path="/"><Posts /></Route>              
+            <Route exact path="/createpost"><Createpost /></Route>
+            <Route path="/post/:id" render={(props) => <PostRender {...props} />}/>
+            <Route path="/userprofile/:id" render={(props) => <UserprofileRender {...props} />}/>
+            <Route path="/userplace"><Followlist /></Route>
+            <Route path="/chatlist" render={(props) => <Chatlist {...props} />}/>
+            <Route path="/chatbox/:id" render={(props) => <Chatbox {...props} />}/>
+            <Route path="/search"><Search /></Route>
+            <Route><NotFound /></Route>
+          </Switch>
+        </Main>
+        <Aside>
+          <Followlist />
+        </Aside>
+        {chatScreen ? null : <MobileNavBottom />}
+      </Wrapper>
   );
 };
 

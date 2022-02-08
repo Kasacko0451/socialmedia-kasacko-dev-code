@@ -39,22 +39,20 @@ const UserprofileRender = () => {
     }, [user])
 
     if (!isLoaded) return <Loading />
-    if (!userdata) return  <Wrapper>User not found...</Wrapper>  
+    if (!Object.keys(userdata).length) return  <Wrapper>User not found...</Wrapper>  
 
     return (    
-            <Wrapper>
+        <Wrapper>
 
-                <Userprofile userdata={userdata} user={user}/>
+            <Userprofile userdata={userdata} user={user}/>
+            <UserprofileNavbar userdata={userdata} user={user}/>
 
-                <UserprofileNavbar userdata={userdata} user={user}/>
-
-                <Switch>
-                    <Route exact path="/userprofile/:id"><Userposts/></Route>
-                    <Route path="/userprofile/:id/followrequests"><Followrequests /></Route>
-                    <Route path="/userprofile/:id/usersettings" render={(props) => <Usersettings {...props} />}/>
-                </Switch>
-
-            </Wrapper>         
+            <Switch>
+                <Route exact path="/userprofile/:id"><Userposts/></Route>
+                <Route path="/userprofile/:id/followrequests"><Followrequests /></Route>
+                <Route path="/userprofile/:id/usersettings" render={(props) => <Usersettings {...props} />}/>
+            </Switch>
+        </Wrapper>         
     ) 
 }
 
