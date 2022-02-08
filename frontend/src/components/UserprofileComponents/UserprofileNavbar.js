@@ -44,20 +44,6 @@ const UserprofileNavbar = (props) => {
                     name={`/userprofile/${user}`}
                     onClick={setActive}
                 />
-                <Styledlink 
-                    to={{pathname:`/userprofile/${user}/likedposts`}} 
-                    className="fas fa-vote-yea" 
-                    active={list.includes(`/userprofile/${user}/likedposts`)}
-                    name={`/userprofile/${user}/likedposts`}
-                    onClick={setActive}
-                />
-                <Styledlink 
-                    to={{pathname:`/userprofile/${user}/likedcomments`}} 
-                    className="fas fa-comment-medical" 
-                    active={list.includes(`/userprofile/${user}/likedcomments`)}
-                    name={`/userprofile/${user}/likedcomments`}
-                    onClick={setActive}
-                />
                 {localStorage.getItem("user") == user &&
                 <>
                 <Styledlink 

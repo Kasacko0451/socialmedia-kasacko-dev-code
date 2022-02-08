@@ -160,7 +160,7 @@ const Entrypage = () => {
           </Section>
         </Row>
         <Footer>
-          <a href="github.com">See my github</a>
+          <a href="https://github.com/ivanbakotin">Github</a>
         </Footer>
       </Second>
     </>
